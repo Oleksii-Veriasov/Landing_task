@@ -1,12 +1,28 @@
-var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 4,
-  spaceBetween: 30,
-  freeMode: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
+
+let width = document.body.clientWidth;
+if (width > 992){
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 30,
+    freeMode: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+}
+else {
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1.5,
+    spaceBetween: 10,
+    freeMode: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+}
+
 
 function validateEmail(email) {
   const re =
@@ -68,7 +84,7 @@ const tabInfos = document.querySelectorAll("[data-tab-info]");
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     const target = document.querySelector(tab.dataset.tabValue);
-    
+
     tabInfos.forEach((tabInfo) => {
       tabInfo.classList.remove("active");
     });
